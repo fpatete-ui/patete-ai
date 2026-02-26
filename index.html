@@ -14,7 +14,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Fondo estrellado */
+/* Fondo estrellas */
 body::before {
     content: "";
     position: fixed;
@@ -23,20 +23,20 @@ body::before {
     background-image: radial-gradient(white 1px, transparent 1px);
     background-size: 3px 3px;
     opacity: 0.05;
-    animation: moveStars 200s linear infinite;
+    animation: stars 200s linear infinite;
     z-index: 0;
 }
 
-@keyframes moveStars {
+@keyframes stars {
     from { transform: translate(0,0); }
     to { transform: translate(-1000px,-1000px); }
 }
 
-/* Sección principal */
+/* HERO */
 .hero {
     position: relative;
     z-index: 1;
-    min-height: 100vh;
+    height: 150vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,47 +44,53 @@ body::before {
     text-align: center;
 }
 
-/* Logo IMPERFFECTION */
+/* IMPERFFECTION gigante */
 .hero img {
-    width: 900px;
-    max-width: 90vw;
-    filter: drop-shadow(0 0 25px rgba(255,255,255,0.4));
+    width: 1200px;
+    max-width: 95vw;
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 40px rgba(255,255,255,0.6));
+    position: sticky;
+    top: 10vh;
 }
 
 /* Statement */
 .manifesto {
-    margin-top: 50px;
-    letter-spacing: 6px;
-    font-size: 15px;
+    margin-top: 60px;
+    letter-spacing: 8px;
+    font-size: 16px;
     opacity: 0.95;
 }
 
 .manifesto span {
     display: block;
-    margin-top: 15px;
-    font-size: 18px;
-    letter-spacing: 12px;
+    margin-top: 20px;
+    font-size: 22px;
+    letter-spacing: 14px;
     opacity: 0.75;
 }
 
-/* Sección base */
-.foundation-section {
+/* FOUNDATION */
+.foundation {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Logo PATETE AI */
-.foundation-section img {
-    width: 300px;
+/* PATETE AI */
+.foundation img {
+    width: 500px;
+    max-width: 80vw;
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 1.2s ease;
+    transform: translateY(60px);
+    transition: all 1.5s ease;
+    filter: drop-shadow(0 0 30px rgba(0,150,255,0.7))
+            drop-shadow(0 0 60px rgba(150,0,255,0.4));
 }
 
-/* Cuando aparece */
-.foundation-section.visible img {
+/* Visible */
+.foundation.visible img {
     opacity: 1;
     transform: translateY(0);
 }
@@ -102,18 +108,17 @@ body::before {
     </div>
 </section>
 
-<section class="foundation-section" id="foundation">
+<section class="foundation" id="foundation">
     <img src="pateteai.png" alt="PATETE AI">
 </section>
 
 <script>
 
-/* Detectar scroll */
 const foundation = document.getElementById("foundation");
 
 window.addEventListener("scroll", () => {
     const rect = foundation.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
+    if (rect.top < window.innerHeight - 150) {
         foundation.classList.add("visible");
     }
 });
