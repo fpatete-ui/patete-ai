@@ -1,54 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PATETE AI · Vision 2626</title>
-    <style>
-        body {
-            margin: 0;
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            font-family: Arial, Helvetica, sans-serif;
-            color: white;
-        }
+<meta charset="UTF-8">
+<title>PATETE AI · Vision 2626</title>
 
-        .container {
-            text-align: center;
-        }
+<style>
+body {
+    margin: 0;
+    background: radial-gradient(circle at center, #0b0f1a 0%, #000 100%);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+}
 
-        .main-logo {
-            max-width: 80%;
-            height: auto;
-        }
+/* Fondo estrellado sutil */
+body::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 3px 3px;
+    opacity: 0.06;
+    animation: moveStars 180s linear infinite;
+}
 
-        .sub-logo {
-            margin-top: 40px;
-            max-width: 200px;
-            opacity: 0.6;
-        }
+@keyframes moveStars {
+    from { transform: translate(0,0); }
+    to { transform: translate(-800px,-800px); }
+}
 
-        .signature {
-            margin-top: 20px;
-            font-size: 11px;
-            letter-spacing: 3px;
-            color: #777;
-        }
-    </style>
+.center {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.center img {
+    width: 700px;
+    max-width: 85vw;
+}
+
+.manifesto {
+    position: absolute;
+    bottom: 120px;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 6px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.manifesto span {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    letter-spacing: 4px;
+    opacity: 0.6;
+}
+
+.foundation {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.foundation img {
+    width: 120px;
+    opacity: 0.9;
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <img src="imperfection.png" alt="IMPERFFECTION M3" class="main-logo">
 
-        <img src="pateteai.png" alt="PATETE AI" class="sub-logo">
+<div class="center">
+    <img src="imperfection.png" alt="IMPERFFECTION">
+</div>
 
-        <div class="signature">
-            Humans Empower AI · Vision 2626
-        </div>
-    </div>
+<div class="manifesto">
+    HUMANS EMPOWER AI
+    <span>Vision 2626</span>
+</div>
+
+<div class="foundation">
+    <img src="pateteai.png" alt="PATETE AI">
+</div>
+
 </body>
 </html>
