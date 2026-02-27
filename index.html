@@ -14,7 +14,7 @@ html, body {
     font-family: Arial, sans-serif;
 }
 
-/* Fondo estrellado */
+/* Fondo estrellado full screen */
 .background {
     position: fixed;
     top: 0;
@@ -26,7 +26,7 @@ html, body {
     z-index: -3;
 }
 
-/* Video energía */
+/* Video energía mezclado (el negro desaparece) */
 .video-layer {
     position: fixed;
     top: 50%;
@@ -34,14 +34,23 @@ html, body {
     transform: translate(-50%, -50%);
     width: 80vw;
     max-width: 900px;
-    opacity: 0.85;
+    opacity: 0.9;
     z-index: -2;
     pointer-events: none;
+    mix-blend-mode: screen;
 }
 
-/* Logo principal */
+/* Centro */
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Logo respirando */
 .logo {
-    position: relative;
     width: 60vw;
     max-width: 700px;
     animation: breathe 6s ease-in-out infinite;
@@ -53,15 +62,6 @@ html, body {
     100% { transform: scale(1); }
 }
 
-/* Contenedor central */
-.center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
 /* Manifiesto */
 .manifesto {
     position: absolute;
@@ -70,7 +70,7 @@ html, body {
     text-align: center;
     font-size: 14px;
     letter-spacing: 4px;
-    opacity: 0.7;
+    opacity: 0.75;
 }
 
 /* Universo */
