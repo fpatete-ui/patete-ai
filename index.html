@@ -2,97 +2,66 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>PATETE AI · 2626</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PATETE AI · Vision 2626</title>
 
 <style>
-
-body {
-    margin: 0;
-    background: #000;
-    font-family: Arial, sans-serif;
-    color: white;
-    overflow-x: hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Fondo estrellas */
-body::before {
-    content: "";
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    background-image: radial-gradient(white 1px, transparent 1px);
-    background-size: 3px 3px;
-    opacity: 0.05;
-    animation: stars 200s linear infinite;
-    z-index: 0;
+body, html {
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: black;
 }
 
-@keyframes stars {
-    from { transform: translate(0,0); }
-    to { transform: translate(-1000px,-1000px); }
+/* VIDEO BACKGROUND */
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.6) contrast(1.1);
 }
 
-/* HERO */
-.hero {
-    position: relative;
-    z-index: 1;
-    height: 150vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+/* DARK OVERLAY */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0,0,0,0.3), rgba(0,0,0,0.8));
+  z-index: -1;
 }
 
-/* IMPERFFECTION gigante */
-.hero img {
-    width: 1200px;
-    max-width: 95vw;
-    mix-blend-mode: screen;
-    filter: drop-shadow(0 0 40px rgba(255,255,255,0.6));
-    position: sticky;
-    top: 10vh;
+/* CENTER LOGO */
+.center {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Statement */
-.manifesto {
-    margin-top: 60px;
-    letter-spacing: 8px;
-    font-size: 16px;
-    opacity: 0.95;
+.logo {
+  width: 60%;
+  max-width: 800px;
+  animation: breathe 6s ease-in-out infinite;
 }
 
-.manifesto span {
-    display: block;
-    margin-top: 20px;
-    font-size: 22px;
-    letter-spacing: 14px;
-    opacity: 0.75;
-}
-
-/* FOUNDATION */
-.foundation {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* PATETE AI */
-.foundation img {
-    width: 500px;
-    max-width: 80vw;
-    opacity: 0;
-    transform: translateY(60px);
-    transition: all 1.5s ease;
-    filter: drop-shadow(0 0 30px rgba(0,150,255,0.7))
-            drop-shadow(0 0 60px rgba(150,0,255,0.4));
-}
-
-/* Visible */
-.foundation.visible img {
-    opacity: 1;
-    transform: translateY(0);
+/* subtle breathing effect */
+@keyframes breathe {
+  0% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(1.03); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.95; }
 }
 
 </style>
@@ -100,30 +69,15 @@ body::before {
 
 <body>
 
-<section class="hero">
-    <img src="imperfection.png" alt="IMPERFFECTION">
-    <div class="manifesto">
-        HUMANS EMPOWER AI
-        <span>2626</span>
-    </div>
-</section>
+<video autoplay muted loop playsinline>
+  <source src="energy.mp4" type="video/mp4">
+</video>
 
-<section class="foundation" id="foundation">
-    <img src="pateteai.png" alt="PATETE AI">
-</section>
+<div class="overlay"></div>
 
-<script>
-
-const foundation = document.getElementById("foundation");
-
-window.addEventListener("scroll", () => {
-    const rect = foundation.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 150) {
-        foundation.classList.add("visible");
-    }
-});
-
-</script>
+<div class="center">
+  <img src="pateteai.png" class="logo">
+</div>
 
 </body>
 </html>
